@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ruby Kadanoff Fitness</title>
+  <link rel="stylesheet" href="Styles/styles.css">
+</head>
+<body>
+  <header>
+    <div class="header-image-slider">
+      <img id="header-image" src="Images/coverphoto.jpg" alt="Header Image"> 
+      <div class="header-overlay">
+        <h1>Ruby Kadanoff Fitness</h1>
+        <nav>
+          <a href="#home">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="schedule.html">Schedule</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+      
+    </div>
+  </header>
+
+  <main>
+    <!-- Home Section -->
+    <section id="home" class="home-section">
+      <h2>Welcome to Ruby Kadanoff Fitness!</h2>
+      <p>Your journey to strength, confidence, and wellness starts here.</p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="home-section">
+      <h2>About Me</h2>
+      <div class="about-container">
+        <p>
+          I'm Ruby Kadanoff, an ISSA Certified Personal Trainer dedicated to helping you achieve your fitness goals.
+        </p>
+        
+        <img src="Images/aboutme.jpg" alt="About Ruby" class="about-photo">
+        <a href="Images/about.html" class="see-more">See More →</a>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="home-section">
+      <h2>Our Services</h2>
+      <p>Explore my tailored fitness classes designed to meet your needs.</p>
+    
+      <div class="carousel-container">
+        <div class="carousel-slide">
+          <img src="Images/services1.jpg" alt="Service Photo 1" class="service-photo"/>
+          <img src="Images/service2.jpg" alt="Service Photo 2" class="service-photo"/>
+          <img src="Images/service3.JPG" alt="Service Photo 3" class="service-photo"/>
+        </div>
+      </div>
+    
+      <a href="services.html" class="see-more">See More →</a>
+    </section>
+    
+
+
+    <!-- Map Section -->
+    <section id="location" class="map-section">
+      <h2>My Location</h2>
+      <p>All classes are held at <strong>Vic Park Westmount</strong>. Find me here:</p>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2797.572760239824!2d-73.6053562237717!3d45.47840973249046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc910a6f3a2ea6b%3A0x735c41de9fb273db!2sVictoria%20Park%20-%20Westmount!5e0!3m2!1sen!2sca!4v1735453563544!5m2!1sen!2sca"
+        width="100%"
+        height="300"
+        style="border:0; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section id="gallery" class="photo-gallery">
+      <h2>Photo Gallery</h2>
+      <div class="gallery-grid">
+        <img src="Images/gallery1.JPG" alt="Gallery Photo 1">
+        <img src="Images/gallergy2.JPG" alt="Gallery Photo 2">
+        <img src="Images/gallery3.JPG" alt="Gallery Photo 3">
+        <img src="Images/gallery4.JPG" alt="Gallery Photo 4">
+      </div>
+
+       <!-- See More Button -->
+  <!-- <button class="see-more" id="see-more">See More →</button> -->
+
+      <!-- Hidden Modal -->
+  <div id="photo-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-button" id="close-modal">&times;</span>
+      <h2>Additional Photos</h2>
+      <div class="modal-gallery">
+        <img src="Images/gallery1.JPG" alt="Gallery Photo 1">
+        <img src="Images/gallergy2.JPG" alt="Gallery Photo 2">
+        <img src="Images/gallery3.JPG" alt="Gallery Photo 3">
+        <img src="Images/gallery4.JPG" alt="Gallery Photo 4">
+      </div>
+    </div>
+  </div>
+
+
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <h2>Contact Me</h2>
+      <p>Have questions, concerns or feedback? Please reach out!</p>
+      <form action="https://formspree.io/f/xzzzoqvz" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Ruby Kadanoff. All rights reserved.</p>
+    <!-- <p>&copy; Website by Lauren Elfassy. For inquiries, email lauren.elfassy@icloud.com.</p> -->
+  </footer>
+</body>
+</html>

@@ -1,0 +1,1194 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  background-color: #fff0f5;
+}
+
+/* General Sections */
+.home-section,
+.about-section,
+.service-section,
+.map-section,
+.photo-gallery,
+.contact-section {
+  width: 90%; /* Ensure full width */
+  padding: 18px;
+  margin: 20px auto;
+  background-color: #ffeef2; /* Match aesthetic */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+
+
+.header-image-slider {
+  position: relative;
+  width: 100%;
+  height: 60vh; /* Adjust to fit your design */
+  overflow: hidden;
+  box-shadow: none; /* Ensure no shadow around the image */
+}
+
+
+.header-image-slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image scales without distortion */
+  position: relative; /* Prevents it from being removed from the document flow */
+}
+
+.header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column; /* Ensures vertical stacking */
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.3); /* Dim the image slightly */
+}
+
+.header-overlay h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap; /* Allows links to wrap if needed */
+  justify-content: center;
+  gap: 10px; /* Consistent spacing */
+  margin-top: 1rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  white-space: nowrap; /* Prevents links from breaking */
+}
+
+/* For tablets */
+@media (max-width: 768px) {
+  .header-image-slider {
+    height: 50vh; /* Reduce height for smaller screens */
+  }
+
+  .header-overlay h1 {
+    font-size: 1.5rem; /* Adjust font size */
+  }
+
+  nav {
+    gap: 8px; /* Reduce spacing between links */
+  }
+
+  nav a {
+    font-size: 0.9rem; /* Adjust link size */
+  }
+}
+
+/* For phones */
+@media (max-width: 480px) {
+  .header-image-slider {
+    height: 40vh; /* Shrink height further for phones */
+  }
+
+  .header-overlay {
+    flex-direction: column; /* Stack items */
+    padding: 0.5rem; /* Reduce padding */
+  }
+
+  nav a {
+    font-size: 0.8rem; /* Smaller link size */
+    margin: 2px 0;
+  }
+}
+
+
+
+main {
+  padding: 2rem;
+  text-align: center;
+}
+
+footer {
+  background-color: #ffc0cb; /* Soft pink color */
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+.welcome-image {
+  display: block;
+  margin: 3000px auto;
+  width: 300px; /* Set the desired width */
+  height: auto;
+  border-radius: 10px; /* Optional: rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: subtle shadow */
+}
+
+.service-photo {
+  max-width: 300px;  /* Or any width you want */
+  width: 100%;       /* Ensures it’s responsive, but never goes bigger than 300px */
+  height: auto;      /* Keeps the aspect ratio */
+  display: block;    /* So margin auto actually centers */
+  margin: 0 auto;    /* Centers the image */
+}
+.carousel-container {
+  display: flex;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  scroll-snap-type: x mandatory; /* Snap to each image */
+  gap: 16px; /* Space between images */
+  padding: 16px; /* Padding around the carousel */
+  scrollbar-width: thin; /* Slim scrollbar for Firefox */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile devices */
+}
+
+.carousel-container::-webkit-scrollbar {
+  height: 8px; /* Slim scrollbar for Chrome */
+}
+
+.carousel-container::-webkit-scrollbar-thumb {
+  background: #ff6f91; /* Customize scrollbar color */
+  border-radius: 10px; /* Rounded scrollbar */
+}
+
+.carousel-slide {
+  display: flex; /* Arrange images in a row */
+  flex-wrap: nowrap; /* Prevent images from wrapping to the next line */
+}
+
+.carousel-slide img {
+  width: 100%; /* Scale to container width */
+  max-width: 260px; /* Prevent images from becoming too large */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px; /* Optional: Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
+  scroll-snap-align: center; /* Snap to the center of the container */
+}
+
+/* Modal Styles */
+.modal {
+display: none; /* Hide modal by default */
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.7); /* Dark transparent background */
+justify-content: center;
+align-items: center;
+z-index: 1000;
+}
+
+.modal-content {
+background: #fff;
+padding: 20px;
+border-radius: 10px;
+width: 80%;
+max-width: 800px;
+text-align: center;
+position: relative;
+overflow-y: auto; /* Allow scrolling if content exceeds height */
+}
+
+.modal-content h2 {
+color: #ff6f91;
+margin-bottom: 20px;
+}
+
+.modal-gallery {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid */
+gap: 16px;
+}
+
+.modal-gallery img {
+width: 100%;
+height: auto;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Close Button */
+.close-button {
+position: absolute;
+top: 10px;
+right: 20px;
+font-size: 24px;
+font-weight: bold;
+color: #444;
+cursor: pointer;
+}
+
+.close-button:hover {
+color: #ff6f91;
+}
+
+
+
+
+/* About Page Styles */
+.about-section {
+  text-align: center;
+  padding: 2rem;
+}
+
+.about-section p {
+  margin: 1rem 0;
+  line-height: 1.5;
+  font-size: 1.1rem;
+}
+
+.about-photo {
+  display: block;
+  margin: 20px auto;
+  max-width: 270px; /* Adjust size */
+  height: auto;
+  border-radius: 50%; /* Optional: make it circular */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.active {
+  text-decoration: underline; /* Highlight active page */
+}
+
+.certification-photo.hidden {
+  display: none; /* Hidden by default */
+}
+
+.certification-photo {
+  max-width: 300px; /* Set the maximum width */
+  height: auto; /* Maintain the aspect ratio */
+  margin: 20px auto; /* Center the image */
+  border-radius: 10px; /* Optional: Add rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow */
+}
+
+
+.certification-click button {
+  padding: 0.5rem 1rem;
+  background-color: #ffc0cb;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.certification-click button:hover {
+  background-color: #e899ab;
+}
+
+.hidden {
+  display: none;
+}
+
+.services-overview {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-top: 1rem;
+}
+
+.services-list {
+  list-style: disc;
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.services-list li {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+p {
+  line-height: 1.8;
+  margin: 0.5rem 0;
+}
+
+footer {
+  background-color: #ffc0cb;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+/* Service Section Styles */
+.service-section {
+  opacity: 0; /* Hidden initially */
+  transform: translateY(50px); /* Slide up effect */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  padding: 2rem;
+  margin: 2rem auto;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  text-align: center;
+}
+
+.service-section h2 {
+  font-size: 1.8rem;
+  color: #ff6f91;
+  margin-bottom: 1rem;
+}
+
+.service-section p {
+  margin: 0.5rem 0;
+  line-height: 1.6;
+}
+
+/* When the section is in view, make it visible */
+.service-section.in-view {
+  opacity: 1;
+  transform: translateY(0); /* No translation */
+}
+
+/* Custom Background Colors for Each Service Section */
+#service-1 {
+  background-color: #ffe0e6; /* Light Pink */
+}
+
+#service-2-3 {
+  background-color: #ffe0e6; /* Soft Pink */
+}
+
+
+#service-4 {
+  background-color: #ffe0e6; /* Deep Pink */
+}
+
+/* Phone Styles (Show Only Second Image) */
+@media (max-width: 480px) {
+  .carousel-container {
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center the image vertically */
+    overflow: hidden; /* Prevent extra scrolls */
+  }
+
+  .carousel-slide {
+    display: flex;
+    justify-content: center; /* Keep the second image centered */
+    align-items: center;
+    width: 100%; /* Take the full container width */
+  }
+
+  .service-photo {
+    display: none; /* Hide all images by default */
+  }
+
+  .service-photo:nth-child(2) {
+    display: block; /* Show only the second image */
+    width: 90%; /* Make it responsive */
+    max-width: 100%; /* Prevent overflow */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0 auto; /* Center the image horizontally */
+    border-radius: 10px; /* Keep rounded corners */
+  }
+}
+
+
+.schedule-link {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #ff6f91;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.schedule-link:hover {
+  background-color: #e4556b; /* Darker pink for hover effect */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* General Styling for Schedule Sections */
+.schedule-section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  padding: 2rem;
+  margin: 2rem auto;
+  background-color: #ffe0e6;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 800px;
+}
+
+.schedule-section.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.book-button {
+  margin-top: 0.75rem;
+  padding: 0.5rem 1rem;
+  background-color: #ff6f91;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.book-button:hover {
+  background-color: #e4556b;
+}
+
+.schedule-box {
+  background-color: #ffeef2; /* Keeps the pink background */
+  border-radius: 10px;
+  padding: 30px 20px; /* Adds padding inside the box */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 600px;
+  margin: 40px auto; /* Centers the box horizontally */
+}
+
+.schedule-box h2 {
+  font-size: 1.8rem; /* Adjust title size */
+  color: #ff6f91;
+  margin-bottom: 20px; /* Adds spacing below the title */
+}
+
+.schedule-box p {
+  font-size: 1rem; /* Adjust font size for details */
+  margin: 8px 0; /* Adds spacing between lines */
+  color: #333;
+}
+
+.schedule-box .spots-left {
+  font-size: 1.1rem; /* Slightly larger text for emphasis */
+  font-weight: bold;
+  color: blue;
+  margin: 15px 0; /* Adds spacing around "Spots Left" */
+}
+
+.schedule-box button {
+  margin-top: 12px; /* Adds spacing above the button */
+  padding: 12px 24px; /* Adjusts button size */
+  background-color: #ff6f91;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.schedule-box button:hover {
+  transform: scale(1.1);
+  background-color: #e4556b;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+form label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+form input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button {
+  padding: 0.5rem 1rem;
+  background-color: #ff6f91;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+form button:hover {
+  background-color: #e4556b;
+}
+
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth; /* Smooth scrolling effect */
+}
+
+header {
+  position: sticky;
+  top: 0;
+  background-color: #444;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  z-index: 1000;
+}
+
+header nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+h1, h2 {
+  color: #ff6f91;
+}
+
+/* Section Styles */
+section {
+  padding-top: 80px;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 800px;
+  text-align: center;
+  background-color: #ffeef2;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Contact Form */
+form label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+form input, form textarea {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #ff6f91;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #e4556b;
+}
+
+/* See More Button */
+.see-more {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #ff6f91;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.see-more:hover {
+  background-color: #e4556b;
+}
+
+.contact-section {
+  text-align: center; /* Center-align the section content */
+  padding: 2rem; /* Add spacing inside the container */
+  max-width: 800px; /* Set the max width for the entire form */
+  margin: 0 auto; /* Center the container horizontally */
+  background-color: #ffeef2; /* Background color of the container */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+form {
+  display: flex;
+  flex-direction: column; /* Stack form elements vertically */
+  align-items: center; /* Center-align the elements */
+}
+
+form label {
+  width: 100%; /* Ensure the label spans the full width */
+  max-width: 400px; /* Limit the width of the labels */
+  text-align: left; /* Align label text to the left */
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+form input,
+form textarea {
+  width: 100%; /* Set the width of the inputs to match the form */
+  max-width: 400px; /* Limit the width of the input fields */
+  padding: 0.5rem;
+  margin: 0.5rem auto; /* Add spacing between form fields */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+form button {
+  padding: 0.5rem 1.5rem;
+  background-color: #ff6f91;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+form button:hover {
+  background-color: #e4556b;
+}
+
+.service-section {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Smooth hover animation */
+  padding: 1.5rem;
+  border-radius: 10px;
+  background-color: #ffeef2; /* Default background color */
+  margin: 1rem auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-align: center; /* Center-align content */
+}
+
+.service-section:hover {
+  transform: scale(1.05); /* Slightly enlarge the section */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a stronger shadow */
+  background-color: #ffccd5; /* Change background color on hover */
+}
+
+.schedule-link {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1.5rem;
+  background-color: #ff6f91; /* Button background color */
+  color: white; /* Button text color */
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Add hover effect to the button */
+}
+
+.schedule-link:hover {
+  background-color: #e4556b; /* Darker pink on hover */
+  transform: scale(1.1); /* Slightly enlarge button on hover */
+}
+
+.home-section {
+transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Smooth hover animation */
+padding: 1.5rem;
+border-radius: 10px;
+background-color: #ffeef2; /* Default background color */
+margin: 1rem auto;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+text-align: center; /* Center-align text */
+}
+
+.home-section:hover {
+transform: scale(1.05); /* Slightly enlarge the section */
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a stronger shadow */
+background-color: #ffccd5; /* Change background color on hover */
+text-decoration: none;
+}
+
+.see-more {
+display: inline-block;
+margin-top: 1rem;
+padding: 0.5rem 1.5rem;
+background-color: #ff6f91; /* Button background color */
+color: white; /* Button text color */
+font-weight: bold;
+text-decoration: none;
+border-radius: 5px; /* Rounded corners */
+transition: background-color 0.3s ease, transform 0.3s ease; /* Add hover effect to the button */
+}
+
+.see-more:hover {
+background-color: #e4556b; /* Darker pink on hover */
+transform: scale(1.1); /* Slightly enlarge button on hover */
+}
+
+.map-section {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: #ffeef2;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.map-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #ff6f91;
+}
+
+.map-section p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #444;
+}
+
+
+/* General styling for the schedule box */
+/* Enlarging the schedule box */
+/* Schedule Box Styling */
+.schedule-box {
+  background-color: #ffeef2;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 600px;
+  margin: 40px auto;
+}
+
+/* Title (Next Class) */
+.schedule-box h2 {
+  font-size: 1.8rem; /* Slightly smaller than before */
+  color: #ff6f91;
+}
+
+/* Class Details (Type, Time, Spots) */
+.schedule-box p {
+  font-size: 1.0rem; /* Make these less intense */
+  margin: 6px 0;
+  color: #333;
+  text-decoration: none;
+}
+
+/* Styling for Spots Left */
+.schedule-box .spots-left {
+  font-weight: bold;
+  color: blue;
+}
+
+
+
+/* Book Now Button */
+#book-now {
+  background-color: #ff6f91;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 24px;
+  font-size: 1rem; /* Slightly smaller button font */
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect for the Button */
+#book-now:hover {
+  transform: scale(1.1);
+  background-color: #e4556b;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Hover Effect for the Schedule Box */
+.schedule-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Modal Styles */
+/* Modal Styles */
+.modal {
+  display: none; /* Hide the modal initially */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Slightly lighter overlay */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #ffffff; /* White background */
+  padding: 1rem; /* Reduced padding */
+  border-radius: 8px; /* Smaller rounded corners */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  max-width: 400px; /* Reduced max width */
+  width: 90%; /* Keep responsiveness */
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  text-decoration: none;
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  top: 6px; /* Closer to the top */
+  right: 10px; /* Closer to the right */
+  font-size: 1rem; /* Smaller size */
+  cursor: pointer;
+  color: #ff6f91;
+}
+
+.close-button:hover {
+  color: #e4556b;
+}
+
+/* Policy Sections */
+.policy-section {
+  margin-bottom: 0.8rem; /* Less spacing between sections */
+}
+
+.policy-section p {
+  font-size: 0.95rem; /* Smaller font size */
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem; /* Less margin */
+}
+
+.policy-box {
+  background-color: #ffeef2;
+  border-radius: 6px; /* Slightly smaller rounded corners */
+  padding: 0.6rem; /* Reduced padding */
+  color: #444;
+  font-size: 0.85rem; /* Smaller text */
+  line-height: 1.3; /* Slightly tighter spacing */
+  text-align: left;
+}
+
+/* Steps for Sign-Up */
+.steps {
+  text-align: left;
+  margin: 0 auto;
+  padding: 0.6rem; /* Reduced padding */
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.6rem; /* Less spacing between steps */
+}
+
+.step-number {
+  background-color: #ff6f91;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 22px; /* Smaller size */
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem; /* Smaller font size */
+  text-decoration: none;
+  margin-right: 6px; /* Reduced margin */
+}
+
+.step p {
+  margin: 0;
+  font-size: 0.85rem; /* Slightly smaller text */
+  color: #444;
+}
+
+/* Agreement Section */
+.agreement {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.8rem;
+  font-size: 0.8rem; /* Smaller font size */
+  color: #555555;
+}
+
+.agreement input[type="checkbox"] {
+  margin-right: 0.5rem;
+  transform: scale(1); /* Smaller checkbox */
+}
+
+/* Proceed Button */
+#proceed-button {
+  margin-top: 0.6rem; /* Less margin on top */
+  padding: 0.5rem 1rem; /* Reduced padding */
+  font-size: 0.85rem; /* Smaller text size */
+  font-weight: bold;
+  color: white;
+  background-color: #ff6f91;
+  border: none;
+  border-radius: 4px; /* Slightly smaller rounded corners */
+  cursor: not-allowed;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#proceed-button:not(:disabled) {
+  cursor: pointer;
+  background-color: #e4556b;
+}
+
+#proceed-button:hover:not(:disabled) {
+  background-color: #d44459;
+  transform: scale(1.02); /* Slight hover effect */
+}
+
+.modal-content {
+  /* for example, 80% of the viewport height */
+  max-height: 80vh; 
+  
+  /* enable vertical scrolling when content is too tall */
+  overflow-y: auto; 
+  
+  /* optional: avoid horizontal scrollbars */
+  overflow-x: hidden; 
+  /* add some padding for readability */
+  padding: 1rem;
+}
+
+
+.main {
+  text-align: center;
+  padding: 20px;
+  text-decoration: none;
+}
+
+.week-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.week-nav h2 {
+  margin: 0 20px;
+}
+
+.nav-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.nav-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.carousel-container {
+  overflow: hidden;
+  display: flex;
+  scroll-behavior: smooth;
+  width: 100%;
+  text-decoration: none;
+}
+
+.week-slide {
+  flex: 0 0 100%;
+  max-width: 100%;
+  display: none;
+  text-align: center;
+}
+
+.week-slide.active {
+  display: block;
+}
+
+/* Remove underlining from strong elements */
+strong {
+text-decoration: none;
+font-weight: bold; /* Ensure it remains bold */
+}
+
+/* Optional: Style links to prevent underlining */
+a {
+text-decoration: none;
+}
+
+.nav-button {
+background-color: #ff91af; /* Soft pink */
+color: white; /* White text for contrast */
+border: none;
+padding: 12px 24px; /* Adjusted for better spacing without arrows */
+cursor: pointer;
+font-family: 'Arial', sans-serif;
+font-size: 16px;
+font-weight: bold;
+border-radius: 25px; /* Rounded corners */
+transition: all 0.3s ease; /* Smooth hover effect */
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.nav-button:hover {
+background-color: #ff7299; /* Darker pink on hover */
+box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+transform: scale(1.05); /* Slightly enlarge */
+}
+
+.nav-button:disabled {
+background-color: #ffd4e1; /* Light pastel pink for disabled state */
+cursor: not-allowed;
+box-shadow: none; /* Remove shadow for disabled state */
+}
+
+
+/* Explicitly reset text-decoration for all child elements */
+.schedule-box, .schedule-box * {
+text-decoration: none !important; /* Overrule inherited styles */
+}
+
+/* Reset text-decoration for parent containers as well */
+.carousel-container, .carousel-container * {
+text-decoration: none !important;
+}
+
+.main, .main * {
+text-decoration: none !important;
+}
+
+
+
+body {
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+}
+
+header {
+position: relative;
+}
+
+
+nav {
+display: flex;
+gap: 20px;
+justify-content: center;
+}
+
+nav a {
+color: white;
+text-decoration: none;
+font-size: 1rem;
+}
+
+.home-section, .map-section, .contact-section, .photo-gallery {
+padding: 40px 20px;
+}
+
+.gallery-grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 20px;
+}
+
+.gallery-grid img {
+width: 100%;
+height: auto;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button {
+background-color: #ff6f91;
+color: white;
+border: none;
+padding: 10px 20px;
+border-radius: 5px;
+cursor: pointer;
+}
+
+button:hover {
+background-color: #e4556b;
+}
+
+.hidden {
+display: none;
+}
+
+.schedule-box {
+  max-width: 500px; /* Set a maximum width */
+  width: 90%; /* Ensure it’s responsive on mobile */
+  margin: 20px auto; /* Center horizontally and add spacing vertically */
+  background-color: #ffeef2;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center; /* Center content horizontally */
+  padding: 20px; /* Add padding to the main container */
+}
+
+
